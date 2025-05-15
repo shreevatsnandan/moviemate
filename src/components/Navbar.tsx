@@ -9,8 +9,9 @@ const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-black absolute w-full  z-10000">
-      <div className="container mx-auto px-4 py-3 flex  items-center justify-between">
+  <nav className="bg-transparent absolute w-full h-25 border-b border-gray-500 z-[10000]">
+
+      <div className="container mx-auto px-20 py-3 flex h-full  items-center justify-between">
         <div className="flex-shrink-0 text-xl font-bold text-gray-900">
           <Image src="/images/Logo.png" alt="Logo" width={100} height={40} />
         </div>
