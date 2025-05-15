@@ -48,8 +48,8 @@ const BannerCarousel = () => {
     }
   ];
 
-  const plugin = useRef(
-    Autoplay({ delay: 1000, stopOnInteraction: true })
+  const plugin = useRef( 
+    Autoplay({ delay: 1100, stopOnInteraction: true })
   );
 
   return (
