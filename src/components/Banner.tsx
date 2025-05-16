@@ -80,10 +80,8 @@ const BannerCarousel = () => {
                   {/* Left-aligned category */}
                   
                   <span className="text-sm md:text-base font-grace tracking-widest text-red-500 mb-2 inline-block">
-  {banner.category}
-</span>
-
-                  {/* Centered content */}
+                  {banner.category}
+                  </span>
                   <div>
                     <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-4 text-white">
                       {banner.heading}
