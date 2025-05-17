@@ -20,6 +20,7 @@ const videoUrls = [
   "https://www.youtube.com/embed/tgbNymZ7vqY",
   "https://www.youtube.com/embed/eX2qFMC8cFo",
   "https://www.youtube.com/embed/kJQP7kiw5Fk",
+  "https://www.youtube.com/embed/6ZfuNTqbHE8",
   "https://www.youtube.com/embed/6ZfuNTqbHE8"
 ];
 
