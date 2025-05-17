@@ -7,7 +7,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
+} from "@/components/ui/carousel"; 
 import Autoplay from "embla-carousel-autoplay";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger, DialogContent, DialogClose } from "@/components/ui/dialog";
@@ -24,7 +24,7 @@ const videoUrls = [
   "https://www.youtube.com/embed/6ZfuNTqbHE8"
 ];
 
-const TrailerCarousel = (className:string) => {
+const TrailerCarousel = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeVideo, setActiveVideo] = useState("");
 
@@ -39,7 +39,7 @@ const TrailerCarousel = (className:string) => {
   };
 
   return (
-    <div className={`flex justify-center ${className}`}>
+    <div className="flex justify-center relative bottom-25">
     <div className="flex justify-center w-[70vw]  bg-[#d96c2c] items-center px-5 py-15 ">
       <Carousel className="max-w-4xl relative top-10">
         <CarouselPrevious>
