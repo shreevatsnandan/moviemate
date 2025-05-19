@@ -1,15 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { Search } from 'lucide-react';
-import { User } from 'lucide-react';
+import { Search } from "lucide-react";
+import { User } from "lucide-react";
 
-const Navbar: React.FC = () => {
+const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
 
   return (
-  <nav className="bg-transparent absolute w-full h-25 border-b border-gray-500 z-[10000]">
-
+    <nav className="bg-transparent absolute w-full h-25 border-b border-gray-500 z-[10000]">
       <div className="container mx-auto px-20 py-3 flex h-full  items-center justify-between">
         <div className="flex-shrink-0 text-xl font-bold text-gray-900">
           <Image src="/images/Logo.png" alt="Logo" width={100} height={40} />
@@ -38,7 +37,7 @@ const Navbar: React.FC = () => {
           </li>
         </ul>
         <div className="flex items-center space-x-4">
-         <Search className="text-white" />
+          <Search className="text-white" />
           <User className="text-white" />
         </div>
       </div>
@@ -55,7 +54,10 @@ const Navbar: React.FC = () => {
             </a>
           </li>
           <li>
-            <a href="/services" className="block text-white hover:text-blue-600">
+            <a
+              href="/services"
+              className="block text-white hover:text-blue-600"
+            >
               News
             </a>
           </li>
@@ -64,11 +66,10 @@ const Navbar: React.FC = () => {
               Contact
             </a>
           </li>
-          
         </ul>
       )}
     </nav>
   );
 };
 
-export default Navbar;
+export default Header;

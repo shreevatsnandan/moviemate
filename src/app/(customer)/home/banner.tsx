@@ -28,7 +28,7 @@ const BannerCarousel = () => {
       subheading: "Directed by: Hwang Dong-hyuk",
       category: "Drama | Thriller",
       btnLink: "/squid-game",
-      btnText: "Get Tickets"
+      btnText: "Get Tickets",
     },
     {
       image: "/images/banner2.jpg",
@@ -36,7 +36,7 @@ const BannerCarousel = () => {
       subheading: "Directed by: Sam Raimi",
       category: "Action | Superhero",
       btnLink: "/spider-man",
-      btnText: "Get Tickets"
+      btnText: "Get Tickets",
     },
     {
       image: "/images/banner3.jpg",
@@ -44,13 +44,11 @@ const BannerCarousel = () => {
       subheading: "Directed by: Zack Snyder",
       category: "Action | Historical",
       btnLink: "/300",
-      btnText: "Get Tickets"
-    }
+      btnText: "Get Tickets",
+    },
   ];
 
-  const plugin = useRef( 
-    Autoplay({ delay: 1100, stopOnInteraction: true })
-  );
+  const plugin = useRef(Autoplay({ delay: 1100, stopOnInteraction: true }));
 
   return (
     <div className="w-full h-[80vh] md:h-screen overflow-hidden relative">
@@ -78,9 +76,9 @@ const BannerCarousel = () => {
               <div className="relative h-full flex items-center justify-center text-center px-4">
                 <div className="max-w-3xl mx-auto w-full">
                   {/* Left-aligned category */}
-                  
+
                   <span className="text-sm md:text-base font-grace tracking-widest text-red-500 mb-2 inline-block">
-                  {banner.category}
+                    {banner.category}
                   </span>
                   <div>
                     <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-4 text-white">
@@ -90,12 +88,10 @@ const BannerCarousel = () => {
                       {banner.subheading}
                     </p>
                     <Button
-                            size="lg"
-                            className="px-10 rounded-none py-8 text-lg bg-[#d96c2c] hover:bg-[#b3551e] transition-colors"
-                          >
-                      <a href={banner.btnLink}>
-                        {banner.btnText}
-                      </a>
+                      size="lg"
+                      className="px-10 rounded-none py-8 text-lg bg-[#d96c2c] hover:bg-[#b3551e] transition-colors"
+                    >
+                      <a href={banner.btnLink}>{banner.btnText}</a>
                     </Button>
                   </div>
                 </div>
