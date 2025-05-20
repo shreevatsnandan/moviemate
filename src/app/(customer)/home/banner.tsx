@@ -10,8 +10,10 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface BannerItem {
+  id: number;
   image: string;
   heading: string;
   subheading: string;
@@ -23,6 +25,7 @@ interface BannerItem {
 const BannerCarousel = () => {
   const banners: BannerItem[] = [
     {
+      id: 1,
       image: "/images/banner1.jpg",
       heading: "Squid Game",
       subheading: "Directed by: Hwang Dong-hyuk",
@@ -31,6 +34,7 @@ const BannerCarousel = () => {
       btnText: "Get Tickets",
     },
     {
+      id: 2,
       image: "/images/banner2.jpg",
       heading: "Spider-Man",
       subheading: "Directed by: Sam Raimi",
@@ -39,6 +43,7 @@ const BannerCarousel = () => {
       btnText: "Get Tickets",
     },
     {
+      id: 3,
       image: "/images/banner3.jpg",
       heading: "300",
       subheading: "Directed by: Zack Snyder",
@@ -91,7 +96,9 @@ const BannerCarousel = () => {
                       size="lg"
                       className="px-10 rounded-none py-8 text-lg bg-[#d96c2c] hover:bg-[#b3551e] transition-colors"
                     >
-                      <a href={banner.btnLink}>{banner.btnText}</a>
+                      <Link href={`/select-show/${banner.id}`} passHref>
+                        {banner.btnText}
+                      </Link>
                     </Button>
                   </div>
                 </div>
