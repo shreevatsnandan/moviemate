@@ -40,7 +40,6 @@ const MovieShowtimeSelector = ({ movieId }: { movieId: number }) => {
     release_date: string;
   }>();
 
-  // Get movie data from dummy list
   useEffect(() => {
     const movie = dummyMovies.find((m) => m.id === movieId);
     if (movie) {
@@ -134,9 +133,7 @@ const MovieShowtimeSelector = ({ movieId }: { movieId: number }) => {
     if (!selectedDate) return;
 
     router.push(
-      `/select-seats?movieId=${movieId}&date=${
-        selectedDate.toISOString().split("T")[0]
-      }&hall=${hall}&time=${showtime.time}`
+      `/select-seat`
     );
   };
 
