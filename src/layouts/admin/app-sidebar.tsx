@@ -56,13 +56,13 @@ export const sidebarData = {
       ],
     },
     {
-      title: "Movies & Shows",
+      title: "Movies",
       items: [
         {
           title: "Movies",
           icon: Film,
           items: [
-            { title: "All Movies", url: "/admin/movies" },
+            { title: "All Movies", url: "/admin/movies/all" },
             { title: "Add Movie", url: "/admin/movies/add" },
             { title: "Categories", url: "/admin/movies/categories" },
             { title: "Languages", url: "/admin/movies/languages" },
