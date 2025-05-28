@@ -8,7 +8,7 @@ const movieSchema = new mongoose.Schema({
   language: { type: String, required: true },
   releaseDate: { type: Date, required: true },
   posterUrl: { type: String, required: true },
-  trailerUrl: { type: String },
+  trailerUrl: { type: [String] },
   rating: { type: String, enum: ['G', 'PG', 'PG-13', 'R', 'NC-17'] },
   addedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   createdAt: { type: Date, default: Date.now }
