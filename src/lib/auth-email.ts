@@ -14,7 +14,7 @@ export async function sendAuthEmail({ email, type, code }: AuthEmailOptions) {
     ? 'Verify Your Email Address' 
     : 'Reset Your Password';
   
-  const action = type === 'verification' ? 'verify' : 'reset';
+  const action = type === 'verification' ? 'verify-email' : 'reset';
   const url = `${process.env.NEXTAUTH_URL}/${action}?code=${code}&email=${encodeURIComponent(email)}`;
 
   const content = type === 'verification'
