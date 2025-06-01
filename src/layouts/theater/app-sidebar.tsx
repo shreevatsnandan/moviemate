@@ -107,38 +107,6 @@ export const sidebarData = {
       ],
     },
     {
-      title: "Users",
-      items: [
-        {
-          title: "Manage Users",
-          icon: Users,
-          url: "/admin/users",
-        },
-      ],
-    },
-    {
-      title: "Payments & Reports",
-      items: [
-        {
-          title: "Payments",
-          icon: Wallet,
-          items: [
-            { title: "All Transactions", url: "/admin/payments" },
-            { title: "Refunds", url: "/admin/refunds" },
-          ],
-        },
-        {
-          title: "Reports",
-          icon: Receipt,
-          items: [
-            { title: "Revenue Report", url: "/admin/reports/revenue" },
-            { title: "Show Performance", url: "/admin/reports/shows" },
-            { title: "User Activity", url: "/admin/reports/users" },
-          ],
-        },
-      ],
-    },
-    {
       title: "Settings",
       items: [
         {
