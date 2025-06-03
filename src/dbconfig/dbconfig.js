@@ -1,14 +1,23 @@
-// src/dbconfig/dbconfig.js
-import mongoose from "mongoose";
+// dbconfig/dbconfig.js
+import mongoose from 'mongoose';
 
-export const dbConnect = async () => {
-  try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    const connection = mongoose.connection;
-    console.log("Connected to MongoDB");
-    return connection;
-  } catch (err) {
-    console.error("MongoDB connection error:", err);
-    throw err; // Important to throw the error so you can catch it elsewhere
+const connection = {};
+
+async function dbConnect() {
+  if (connection.isConnected) {
+    return;
   }
-};
+
+  const db = await mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+
+  connection.isConnected = db.connections[0].readyState;
+}
+
+// Either export as named export
+export default dbConnect;
+
+// OR as default export (choose one, not both)
+// export default dbConnect;
