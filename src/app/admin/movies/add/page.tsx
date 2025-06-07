@@ -2,12 +2,31 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
+import PageHeader from "@/app/admin/page-header";
 
 const MovieForm = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadProgress, setUploadProgress] = useState(0);
+
+const pageHeader = {
+  breadcrumb: [
+    {
+      name: "Dashboard",
+      href: "/admin",
+    },
+    {
+      name: "Movies",
+      href: "/admin/movies/all",
+    },
+    {
+      name: "Add Movies",
+    },
+  ],
+};
+
+
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -110,51 +129,54 @@ const MovieForm = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    try {
-      // 1. Upload poster image if selected
-      let posterUrl = formData.posterUrl;
-      if (selectedFile) {
-        const uploadedUrl = await uploadFile();
-        if (uploadedUrl) {
-          posterUrl = uploadedUrl;
+      try 
+      {
+        let posterUrl = formData.posterUrl;
+        if (selectedFile) {
+          const uploadedUrl = await uploadFile();
+          if (uploadedUrl) {
+            posterUrl = uploadedUrl;
+          }
         }
+
+        const movieData = {
+          ...formData,
+          duration: parseInt(formData.duration),
+          releaseDate: new Date(formData.releaseDate),
+          posterUrl: posterUrl,
+          trailerUrl: formData.trailerUrl.filter(url => url.trim() !== ""),
+        };
+
+        const response = await fetch("/api/moviesdb", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(movieData),
+        }); 
+        if (!response.ok) {
+          throw new Error("Failed to create movie");
+        }
+
+        const result = await response.json();
+        toast.success("Movie added successfully!");
+        router.push("/movies"); 
+        router.refresh(); 
+      } 
+      catch (error) 
+      {
+        console.error("Error:", error);
+        toast.error("Failed to add movie");
+      } 
+      finally 
+      {
+        setIsLoading(false);
       }
-
-      // 2. Prepare movie data
-      const movieData = {
-        ...formData,
-        duration: parseInt(formData.duration),
-        releaseDate: new Date(formData.releaseDate),
-        posterUrl: posterUrl,
-        trailerUrl: formData.trailerUrl.filter(url => url.trim() !== ""),
-      };
-
-      // 3. Submit to your API
-      const response = await fetch("http://localhost:3000/api/moviesdb", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(movieData),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to create movie");
-      }
-
-      const result = await response.json();
-      toast.success("Movie added successfully!");
-      router.push("/movies"); // Redirect to movies page
-      router.refresh(); // Refresh the page to show new data
-    } catch (error) {
-      console.error("Error:", error);
-      toast.error("Failed to add movie");
-    } finally {
-      setIsLoading(false);
-    }
   };
 
   return (
+    <>
+    <PageHeader breadcrumbs={pageHeader.breadcrumb}></PageHeader>
     <div className="max-w-full p-6 bg-white rounded-lg shadow-md">
       <h1 className="text-2xl font-bold mb-6">Add New Movie</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -352,6 +374,7 @@ const MovieForm = () => {
         </div>
       </form>
     </div>
+    </>
   );
 };
 
