@@ -2,19 +2,13 @@
 
 import * as React from "react";
 import {
-  BarChart,
   Film,
   Ticket,
   CalendarClock,
   Building,
-  Users,
   MonitorPlay,
   LayoutDashboard,
   Settings,
-  Receipt,
-  Wallet,
-  Star,
-  Megaphone,
   ShieldCheck,
 } from "lucide-react";
 
@@ -32,15 +26,15 @@ import {
 // This is sample data.
 export const sidebarData = {
   user: {
-    name: "admin",
-    email: "admin@moviemate.com",
+    name: "theater",
+    email: "theater@moviemate.com",
     avatar: "/avatars/admin.jpg",
   },
   panel: [
     {
       name: "Main Admin",
       logo: ShieldCheck,
-      href: "/admin",
+      href: "/theater",
       plan: "Main Admin",
     },
   ],
@@ -50,8 +44,18 @@ export const sidebarData = {
       items: [
         {
           title: "Dashboard",
-          url: "/admin/dashboard",
+          url: "/theater/dashboard",
           icon: LayoutDashboard,
+        },
+      ],
+    },
+    {
+      title: "Cinema Hall",
+      items: [
+        {
+          title: "Manage Hall",
+          icon: Building,
+          url: "/theater/manage-hall",
         },
       ],
     },
@@ -62,28 +66,18 @@ export const sidebarData = {
           title: "Movies",
           icon: Film,
           items: [
-            { title: "All Movies", url: "/admin/movies/all" },
-            { title: "Add Movie", url: "/admin/movies/add" },
-            { title: "Categories", url: "/admin/movies/categories" },
+            { title: "All Movies", url: "/theater/movies/all" },
+            { title: "Add Movie", url: "/theater/movies/add" },
+            { title: "Categories", url: "/theater/movies/categories" },
           ],
         },
         {
           title: "Shows",
           icon: MonitorPlay,
           items: [
-            { title: "All Shows", url: "/admin/shows" },
-            { title: "Add Show", url: "/admin/shows/add" },
+            { title: "All Shows", url: "/theater/shows" },
+            { title: "Add Show", url: "/theater/shows/add" },
           ],
-        },
-      ],
-    },
-    {
-      title: "Theaters",
-      items: [
-        {
-          title: "Manage Theaters",
-          icon: Building,
-          url: "/admin/manage-theaters",
         },
       ],
     },
@@ -94,15 +88,15 @@ export const sidebarData = {
           title: "Ticket Management",
           icon: Ticket,
           items: [
-            { title: "All Bookings", url: "/admin/bookings" },
-            { title: "Cancelled Tickets", url: "/admin/bookings/cancelled" },
-            { title: "Refund Requests", url: "/admin/bookings/refunds" },
+            { title: "All Bookings", url: "/theater/bookings" },
+            { title: "Cancelled Tickets", url: "/theater/bookings/cancelled" },
+            { title: "Refund Requests", url: "/theater/bookings/refunds" },
           ],
         },
         {
           title: "Reservation",
           icon: CalendarClock,
-          url: "/admin/reservations",
+          url: "/theater/reservations",
         },
       ],
     },
@@ -112,7 +106,7 @@ export const sidebarData = {
         {
           title: "Settings",
           icon: Settings,
-          url: "/admin/settings",
+          url: "/theater/settings",
         },
       ],
     },

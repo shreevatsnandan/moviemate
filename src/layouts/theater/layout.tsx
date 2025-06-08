@@ -1,7 +1,7 @@
-import { AppSidebar } from "@/layouts/admin/app-sidebar";
+import { AppSidebar } from "@/layouts/theater/app-sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
-export default function AdminLayout({
+export default function TheaterLayout({
   children,
 }: {
   children: React.ReactNode;
